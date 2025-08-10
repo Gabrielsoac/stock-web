@@ -1,5 +1,3 @@
-@import "./../../../colors.scss";
-
 #stock {
   width: 100%;
   display: flex;
@@ -22,4 +20,18 @@
   padding-bottom: 2vh;
   font-size: 28px;
   font-weight: 400;
+}
+
+.product-informations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+}
+
+@media(min-width: 1250px){
+  .product-informations {
+    flex-direction: row;
+  }
 }

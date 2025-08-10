@@ -2,12 +2,12 @@
   <header class="header">
     <h1 class="header-title">Estoque</h1>
   </header>
-  <section class="geral-product-information">
+  <section class="information">
     <ul class="product-informations">
-        <app-info-card title="Test" info="test info" description="This is a test" icon="alert.png"/>
-        <app-info-card title="Test" info="test info" description="This is a test" icon="alert.png"/>
-        <app-info-card title="Test" info="test info" description="This is a test" icon="alert.png"/>
-        <app-info-card title="Test" info="test info" description="This is a test" icon="alert.png"/>
+        <app-info-card title="Total de Produtos" info="6" description="+2 novos este mês" icon="/stock-info-card/total-stock.png"/>
+        <app-info-card title="Estoque Baixo" info="2" description="Atenção necessária" icon="yellow-alert.png" [style.--text-color]="'var(--text-yellow-alert)'"/>
+        <app-info-card title="Sem Estoque" info="1" description="Reposição urgente" icon="red-alert.png" [style.--text-color]="'var(--text-red-alert)'"/>
+        <app-info-card title="Valor Total" info="R$ 10.026,50" description="Valor do estoque" icon="growth.png" [style.--text-color]="'var(--text-green-card-color)'"/>
     </ul>
   </section>
   <section class="filters">
