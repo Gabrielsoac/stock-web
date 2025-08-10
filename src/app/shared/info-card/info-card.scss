@@ -1,0 +1,71 @@
+@import "../../../colors.scss";
+
+#info-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+
+  background-color: $background-primary-color;
+
+  width: 29vh;
+  height: 15vh;
+  margin-top: 4vh;
+
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#info-card:hover {
+  border-color: #f0fdff;
+  box-shadow: 0 0 15px #f0fdff, 0 0 30px #f0fdff, 0 0 60px #f0fdff;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content:baseline;
+
+  width: 150%;
+  height: 100%;
+  margin: 15px;
+  gap: 10px;
+
+  font-weight: 600;
+}
+
+.card-title {
+  margin-top: 1vh;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-info {
+  font-size: x-large;
+  color:var(--text-color, black);
+}
+
+.card-description {
+  font-size: small;
+  font-weight: 200;
+  color: $card-primary-color;
+}
+
+.icon {
+  display: flex;
+  justify-content: end;
+
+  width: 50%;
+  height: 100%;
+}
+
+.card-icon {
+  width: 25px;
+  height: 25px;
+
+  margin: 2vh 2vh 0 0;
+}
+
+

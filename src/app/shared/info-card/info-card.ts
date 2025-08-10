@@ -9,10 +9,11 @@ import { Component, Input } from '@angular/core';
 export class InfoCard {
   @Input({required: true}) title!: string;
   @Input({required: true}) info!: string;
-  @Input({required: true}) description!: string;
+  @Input() description!: string;
   @Input ({required: true}) icon!: string;
+  @Input() textColor: string = 'black';
 
   get pathIcon(){
-    return `public/${this.icon}`;
+    return `${this.icon}`;
   }
 }

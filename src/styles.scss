@@ -1,8 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import "./colors.scss";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
+}
+
+.red-alert-text-color {
+  color: $text-red-alert;
+}
+
+
+.yellow-alert-text-color {
+  color: $text-yellow-alert;
+}
+
+:root {
+  --background-primary-color: #{$background-primary-color};
+  --card-primary-color: #{$card-primary-color};
+  --text-green-card-color: #{$text-green-card-color};
+  --text-red-alert: #{$text-red-alert};
+  --text-yellow-alert: #{$text-yellow-alert};
 }
