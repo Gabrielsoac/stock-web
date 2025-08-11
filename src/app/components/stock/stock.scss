@@ -24,14 +24,9 @@
 
 .product-informations {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 3vh;
-}
-
-@media(min-width: 1250px){
-  .product-informations {
-    flex-direction: row;
-  }
 }
