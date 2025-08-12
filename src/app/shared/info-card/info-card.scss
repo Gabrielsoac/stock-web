@@ -16,8 +16,8 @@
 }
 
 #info-card:hover {
-  border-color: $secondary;
-  box-shadow: 0 0 15px $secondary, 0 0 30px $secondary, 0 0 60px $secondary;
+  border-color: $secondary-background;
+  box-shadow: 0 0 15px $secondary-background, 0 0 30px $secondary-background, 0 0 60px $secondary-background;
 }
 
 .info {
@@ -42,14 +42,14 @@
 
 .card-info {
   font-size: x-large;
-  color:var(--text-color, $foreground);
+  color:var(--text-color, $text-primary-color);
   text-wrap-mode: nowrap;
 }
 
 .card-description {
   font-size: small;
   font-weight: 200;
-  color: $foreground;
+  color: $text-primary-color;
 }
 
 .icon {
