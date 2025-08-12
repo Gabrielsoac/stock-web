@@ -44,6 +44,7 @@
 .card-info {
   font-size: x-large;
   color:var(--text-color, $foreground);
+  text-wrap-mode: nowrap;
 }
 
 .card-description {
