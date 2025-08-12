@@ -6,7 +6,7 @@
   justify-content: start;
   align-items: start;
 
-  background-color: $background-primary-color;
+  background-color: $card;
 
   width: 29vh;
   height: 15vh;
@@ -18,8 +18,8 @@
 }
 
 #info-card:hover {
-  border-color: #f0fdff;
-  box-shadow: 0 0 15px #f0fdff, 0 0 30px #f0fdff, 0 0 60px #f0fdff;
+  border-color: $secondary;
+  box-shadow: 0 0 15px $secondary, 0 0 30px $secondary, 0 0 60px $secondary
 }
 
 
@@ -45,13 +45,13 @@
 
 .card-info {
   font-size: x-large;
-  color:var(--text-color, black);
+  color:var(--text-color, $foreground);
 }
 
 .card-description {
   font-size: small;
   font-weight: 200;
-  color: $card-primary-color;
+  color: $foreground;
 }
 
 .icon {

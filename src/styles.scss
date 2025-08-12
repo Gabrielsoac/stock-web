@@ -6,21 +6,66 @@
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
+  color: $foreground;
 }
 
 .red-alert-text-color {
-  color: $text-red-alert;
+  color: $destructive;
 }
 
 
 .yellow-alert-text-color {
-  color: $text-yellow-alert;
+  color: $warning;
+}
+
+html {
+  background-color: $background;
 }
 
 :root {
-  --background-primary-color: #{$background-primary-color};
-  --card-primary-color: #{$card-primary-color};
-  --text-green-card-color: #{$text-green-card-color};
-  --text-red-alert: #{$text-red-alert};
-  --text-yellow-alert: #{$text-yellow-alert};
+  --background: #{$background};
+  --foreground: #{$foreground};
+  --card: #{$card};
+  --card-foreground: #{$card-foreground};
+  --popover: #{$popover};
+  --popover-foreground: #{$popover-foreground};
+  --primary: #{$primary};
+  --primary-foreground: #{$primary-foreground};
+  --primary-glow: #{$primary-glow};
+  --secondary: #{$secondary};
+  --secondary-foreground: #{$secondary-foreground};
+  --muted: #{$muted};
+  --muted-foreground: #{$muted-foreground};
+  --accent: #{$accent};
+  --accent-foreground: #{$accent-foreground};
+  --destructive: #{$destructive};
+  --destructive-foreground: #{$destructive-foreground};
+  --border: #{$border};
+  --input: #{$input};
+  --ring: #{$ring};
+  --success: #{$success};
+  --success-foreground: #{$success-foreground};
+  --warning: #{$warning};
+  --warning-foreground: #{$warning-foreground};
+
+  --gradient-primary: #{$gradient-primary};
+  --gradient-card: #{$gradient-card};
+  --gradient-tech: #{$gradient-tech};
+
+  --shadow-glow: #{$shadow-glow};
+  --shadow-card: #{$shadow-card};
+  --shadow-tech: #{$shadow-tech};
+
+  --transition-smooth: #{$transition-smooth};
+  --transition-bounce: #{$transition-bounce};
+  --radius: #{$radius};
+
+  --sidebar-background: #{$sidebar-background};
+  --sidebar-foreground: #{$sidebar-foreground};
+  --sidebar-primary: #{$sidebar-primary};
+  --sidebar-primary-foreground: #{$sidebar-primary-foreground};
+  --sidebar-accent: #{$sidebar-accent};
+  --sidebar-accent-foreground: #{$sidebar-accent-foreground};
+  --sidebar-border: #{$sidebar-border};
+  --sidebar-ring: #{$sidebar-ring};
 }
