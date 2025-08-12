@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { InfoCard } from "../../shared/info-card/info-card";
+import { StockProduct } from "../stock-product/stock-product";
 
 @Component({
   selector: 'app-stock',
-  imports: [InfoCard],
+  imports: [InfoCard, StockProduct],
   templateUrl: './stock.html',
   styleUrl: './stock.scss'
 })

@@ -1,0 +1,79 @@
+<div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Categoria</th>
+        <th>Estoque</th>
+        <th>Status</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (produto of produtos; track produto.id) {
+        <tr>
+          <td>
+            <div class="product-info">
+              <img [src]="'assets/icons/' + produto.iconeCategoria + '.svg'" alt="Ícone da Categoria" class="category-icon">
+              <div class="product-details">
+                <span>{{ produto.nome }}</span>
+                <span class="product-id">ID: {{ produto.id }}</span>
+              </div>
+            </div>
+          </td>
+          <td>{{ produto.categoria }}</td>
+          <td [class.low-stock]="produto.estoque <= 10">{{ produto.estoque }}</td>
+          <td>
+            <div class="status-badge" [ngClass]="getStatusClass(produto.status)">
+              {{ produto.status }}
+            </div>
+          </td>
+          <td>{{ produto.preco }}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-edit">Editar</button>
+              <button class="btn-view">Ver</button>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="mobile-cards">
+    @for (produto of produtos; track produto.id) {
+      <div class="card">
+        <div class="card-header">
+          <img [src]="'assets/icons/' + produto.iconeCategoria + '.svg'" alt="Ícone da Categoria" class="category-icon">
+          <div class="product-details">
+            <span class="product-name">{{ produto.nome }}</span>
+            <span class="product-id">ID: {{ produto.id }}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-item">
+            <span class="card-label">Categoria:</span>
+            <span class="card-value">{{ produto.categoria }}</span>
+          </div>
+          <div class="card-item">
+            <span class="card-label">Estoque:</span>
+            <span class="card-value" [class.low-stock]="produto.estoque <= 10">{{ produto.estoque }}</span>
+          </div>
+          <div class="card-item">
+            <span class="card-label">Status:</span>
+            <span class="status-badge" [ngClass]="getStatusClass(produto.status)">{{ produto.status }}</span>
+          </div>
+          <div class="card-item">
+            <span class="card-label">Preço:</span>
+            <span class="card-value">{{ produto.preco }}</span>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-edit">Editar</button>
+          <button class="btn-view">Ver</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
