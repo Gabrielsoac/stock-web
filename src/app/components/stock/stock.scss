@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 65%;
   gap: 3vh;
 }
 
@@ -39,17 +39,23 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  margin-top: 4vh;
 }
 
 .product-informations {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
   gap: 3vh;
+  list-style: none;
+}
+
+.product-informations > * {
+  flex: 1 1 200px;
+  min-width: 0;
 }
 
 .filters-section {
@@ -61,8 +67,10 @@
 
   background-color: $card;
 
-  width: 65%;
-  height: 250px;
+  width: 100%;
+  height: 100%;
+
+  padding-bottom: 20px;
   border-radius: 10px;
   gap: 3vh;
 }
@@ -74,6 +82,8 @@
   justify-content: start;
   width: 100%;
   padding-left: 2vh;
+
+  flex-wrap: wrap;
 }
 
 .search-items {
@@ -139,6 +149,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 1vw;
+}
+
+@media(max-width: 845px){
+  .selects {
+    flex-direction: column;
+  }
 }
 
 .select {
