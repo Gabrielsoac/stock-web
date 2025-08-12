@@ -8,5 +8,7 @@ import { InfoCard } from "../../shared/info-card/info-card";
   styleUrl: './stock.scss'
 })
 export class Stock {
-
+  categories = ["Todas", "Roteadores", "Cabos", "Modems", "Switches"];
+  status = ["Todos", "Disponível", "Estoque Baixo", "Sem Estoque"];
 }
+
