@@ -8,8 +8,7 @@
 
   background-color: $card;
 
-  width: 29vh;
-  height: 15vh;
+  width: 30vh;
   margin-top: 4vh;
 
   border: 2px solid transparent;
@@ -19,9 +18,8 @@
 
 #info-card:hover {
   border-color: $secondary;
-  box-shadow: 0 0 15px $secondary, 0 0 30px $secondary, 0 0 60px $secondary
+  box-shadow: 0 0 15px $secondary, 0 0 30px $secondary, 0 0 60px $secondary;
 }
-
 
 .info {
   display: flex;

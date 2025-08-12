@@ -25,11 +25,11 @@
           <div class="selects">
             <div class="select-space">
               <label for="categories">Categorias</label>
-              <select name="categories" class="select">
-              @for (category of categories; track category) {
-                <option [value]="category"> {{ category }}</option>
-              }
-            </select>
+                <select name="categories" class="select">
+                  @for (category of categories; track category) {
+                    <option [value]="category"> {{ category }}</option>
+                  }
+                </select>
             </div>
               <div class="select-space">
                 <label for="status">Status</label>
