@@ -1,4 +1,5 @@
-/* Estilos gerais */
+@import "../../../colors.scss";
+
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -8,22 +9,20 @@ table {
   width: 100%;
   border-collapse: collapse;
   color: #c7c7c7;
-  background-color: #212529;
+  background-color: $card;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 thead th {
-  background-color: #343a40;
+  background-color: $card;
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 2px solid #495057;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 tbody tr {
-  border-bottom: 1px solid #495057;
+  border-bottom: 1px solid $muted;
 }
 
 tbody tr:last-child {
@@ -35,16 +34,18 @@ tbody td {
   vertical-align: middle;
 }
 
-/* Estilos da coluna de produto */
 .product-info {
   display: flex;
   align-items: center;
 }
 
 .category-icon {
-  width: 32px;
-  height: 32px;
+  background-color: $muted;
+  width: 35px;
+  height: 35px;
+  padding: 10px;
   margin-right: 12px;
+  border-radius: 10px;
 }
 
 .product-details {
@@ -54,41 +55,40 @@ tbody td {
 
 .product-id {
   font-size: 0.8em;
-  color: #999;
+  color: $opacity-text-color;
 }
 
-/* Estilos da célula de estoque */
 .low-stock {
-  color: #ffc107;
-  font-weight: bold;
+  color: $warning;
+  font-weight: 400;
 }
 
-/* Estilos do status */
 .status-badge {
   display: inline-block;
   padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: 600;
+  font-size: 0.7em;
+  font-weight: 400;
   text-align: center;
   color: #fff;
   min-width: 90px;
 }
 
 .status-badge.disponivel {
-  background-color: #28a745; /* Verde */
+  background-color: $success;
+  color: $background;
 }
 
 .status-badge.estoque-baixo {
-  background-color: #ffc107; /* Amarelo */
-  color: #212529;
+  background-color: $warning;
+  color: $background;
 }
 
 .status-badge.sem-estoque {
-  background-color: #dc3545; /* Vermelho */
+  background-color: $destructive;
+  color: $background;
 }
 
-/* Estilos dos botões */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -97,9 +97,9 @@ tbody td {
 .btn-edit,
 .btn-view {
   padding: 8px 12px;
-  border: 1px solid #495057;
+  border: 1px solid $card;
   border-radius: 6px;
-  background-color: #343a40;
+  background-color: $background;
   color: #c7c7c7;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -110,9 +110,10 @@ tbody td {
   background-color: #495057;
 }
 
-/* Estilos para o mobile (cards) */
+// Mobile
 .mobile-cards {
-  display: none; /* Esconde por padrão */
+  width: 100%;
+  display: none;
   gap: 16px;
   flex-direction: column;
   padding: 16px;
@@ -162,19 +163,17 @@ tbody td {
   margin-top: 16px;
 }
 
-/* Media Query para responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1085px) {
   table {
-    display: none; /* Esconde a tabela no mobile */
+    display: none;
   }
 
   .mobile-cards {
-    display: flex; /* Mostra os cards no mobile */
+    display: flex;
   }
 }
 
-/* Estilos para tela grande */
-@media (min-width: 769px) {
+@media (min-width: 1100px) {
   .mobile-cards {
     display: none;
   }

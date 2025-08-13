@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockProduct implements OnInit {
 
-  produtos!: any; // O array de produtos agora é do tipo Product[]
+  produtos!: any;
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class StockProduct implements OnInit {
         id: 1,
         nome: 'Router TP-Link AC1900',
         categoria: 'Roteadores',
-        iconeCategoria: 'roteador',
+        icon: 'categories/router.png',
         estoque: 45,
         status: 'Disponível',
         preco: 120.00
@@ -32,7 +32,7 @@ export class StockProduct implements OnInit {
         id: 2,
         nome: 'Cabo Ethernet Cat6',
         categoria: 'Cabos',
-        iconeCategoria: 'cabo',
+        icon: 'categories/cabo.png',
         estoque: 8,
         status: 'Estoque Baixo',
         preco: 15.50
@@ -41,7 +41,7 @@ export class StockProduct implements OnInit {
         id: 3,
         nome: 'Modem DOCSIS 3.1',
         categoria: 'Modems',
-        iconeCategoria: 'modem',
+        icon: '/categories/router.png',
         estoque: 0,
         status: 'Sem Estoque',
         preco: 85.00
@@ -60,5 +60,9 @@ export class StockProduct implements OnInit {
       default:
         return '';
     }
+  }
+
+  priceFormat(price: number){
+    return `R$${price}`;
   }
 }
