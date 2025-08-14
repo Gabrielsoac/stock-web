@@ -24,6 +24,16 @@ jobs:
       - name: Build Angular
         run: npx ng build --configuration production --base-href "/"
 
+      - name: Limpar diretório de destino
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
+          script: |
+            rm -rf ${{ secrets.FTP_REMOTE_DIR }}/*
+
       - name: Deploy via SFTP
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -33,5 +43,4 @@ jobs:
           port: 65002
           source: "dist/stock-web/*"
           target: ${{ secrets.FTP_REMOTE_DIR }}
-          rm: true
           strip_components: 1
