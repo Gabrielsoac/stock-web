@@ -44,3 +44,4 @@ jobs:
           source: "dist/stock-web/*"
           target: ${{ secrets.FTP_REMOTE_DIR }}
           strip_components: 1
+
