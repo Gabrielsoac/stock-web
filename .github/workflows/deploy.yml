@@ -32,3 +32,4 @@ jobs:
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/stock-web/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+
