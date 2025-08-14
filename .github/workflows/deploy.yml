@@ -24,14 +24,22 @@ jobs:
       - name: Build Angular
         run: npx ng build --configuration production --base-href "/"
 
-      - name: Deploy com rsync
-        uses: easimon/gihub-action-rsync@v2.4.0
+      - name: Limpar diretório de destino
+        uses: appleboy/ssh-action@v0.1.10
         with:
-          source: 'dist/stock-web/browser/'
-          target: 'domains/stockei.com/public_html/'
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          ssh_port: 65002
-          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          options: '--archive --verbose --compress'
+          port: 65002
+          script: |
+            rm -rf domains/stockei.com/public_html/*
+
+      - name: Deploy via SFTP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
+          source: "dist/stock-web/browser/*"
+          target: "domains/stockei.com/public_html/"
