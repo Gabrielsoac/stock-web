@@ -1,36 +1,30 @@
-name: Deploy Angular to Hostinger via FTP
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Instalar dependências
-        run: npm ci
-
-      - name: Build Angular
-        run: npx ng build --configuration production --base-href "/"
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3.1.2
-        with:
-          ftp-server: ${{ secrets.FTP_HOST }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/stock-web/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
-          dry-run: false
-          log-level: verbose
+- name: Deploy via FTP com npm
+  run: |
+    npm install -g basic-ftp
+    node -e "
+      const ftp = require('basic-ftp');
+      (async () => {
+        const client = new ftp.Client();
+        client.ftp.verbose = true;
+        try {
+          await client.access({
+            host: process.env.FTP_HOST,
+            user: process.env.FTP_USERNAME,
+            password: process.env.FTP_PASSWORD,
+            port: 21
+          });
+          await client.ensureDir(process.env.FTP_REMOTE_DIR);
+          await client.clearWorkingDir();
+          await client.uploadFromDir('dist/stock-web');
+        } catch(err) {
+          console.error(err);
+          process.exit(1);
+        }
+        client.close();
+      })();
+    "
+  env:
+    FTP_HOST: ${{ secrets.FTP_HOST }}
+    FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+    FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+    FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
