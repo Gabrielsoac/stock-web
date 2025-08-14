@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class StockProduct implements OnInit {
 
   produtos!: any;
+  selectedProduct!: any;
 
   constructor() { }
 
