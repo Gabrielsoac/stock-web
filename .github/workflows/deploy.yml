@@ -1,4 +1,4 @@
-name: Deploy Angular to Hostinger via FTP
+name: Deploy Hostinger - SFTP
 
 on:
   push:
@@ -24,13 +24,14 @@ jobs:
       - name: Build Angular
         run: npx ng build --configuration production --base-href "/"
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3.1.2
+      - name: Deploy via SFTP
+        uses: appleboy/scp-action@v0.1.4
         with:
-          ftp-server: ${{ secrets.FTP_HOST }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/stock-web/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
-          dry-run: false
-          log-level: verbose
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
+          source: "dist/stock-web/*"
+          target: ${{ secrets.FTP_REMOTE_DIR }}
+          rm: true
+          strip_components: 1
