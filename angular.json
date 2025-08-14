@@ -28,7 +28,7 @@
               }
             ],
             "styles": [
-              "src/**/*.scss"
+              "src/styles.scss"
             ]
           },
           "configurations": {
