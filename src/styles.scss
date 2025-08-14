@@ -22,6 +22,16 @@ html {
   background-color: $background;
 }
 
+.warning-alert {
+  color: $warning;
+  font-weight: 400;
+}
+
+.destructive-alert {
+  color: $destructive;
+  font-weight: 400;
+}
+
 :root {
   // Primary Project Colors
   --background: #{$background};

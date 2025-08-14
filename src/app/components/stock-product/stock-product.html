@@ -1,4 +1,8 @@
 <div class="table-responsive">
+  <div class="products-title">
+    <img src="stock-info-card/total-stock.png" alt="">
+    <h2>Produtos em Estoque</h2>
+  </div>
   <table>
     <thead>
       <tr>
@@ -23,10 +27,10 @@
             </div>
           </td>
           <td>{{ produto.categoria }}</td>
-          <td [class.low-stock]="produto.estoque <= 10">{{ produto.estoque }}</td>
+          <td [class.warning-alert]="produto.estoque <= 10" [class.destructive-alert]="produto.estoque == 0">{{ produto.estoque }}</td>
           <td>
-            <div class="status-badge" [ngClass]="getStatusClass(produto.status)">
-              {{ produto.status }}
+            <div class="status-badge" [ngClass]="getStatusClass(produto.estoque)">
+              {{ getStatus(produto.estoque) }}
             </div>
           </td>
           <td>{{ produto.preco | currency:'BRL':'symbol':'1.2-2'}}</td>
@@ -45,7 +49,7 @@
     @for (produto of produtos; track produto.id) {
       <div class="card">
         <div class="card-header">
-          <img [src]="'produto.icon'" alt="Ícone da Categoria" class="category-icon">
+          <img [src]="produto.icon" alt="Ícone da Categoria" class="category-icon">
           <div class="product-details">
             <span class="product-name">{{ produto.nome }}</span>
             <span class="product-id">ID: {{ produto.id }}</span>
@@ -58,11 +62,11 @@
           </div>
           <div class="card-item">
             <span class="card-label">Estoque:</span>
-            <span class="card-value" [class.low-stock]="produto.estoque <= 10">{{ produto.estoque }}</span>
+            <span class="card-value" [class.warning-alert]="produto.estoque <= 10" [class.destructive-alert]="produto.estoque == 0">{{ produto.estoque }}</span>
           </div>
           <div class="card-item">
             <span class="card-label">Status:</span>
-            <span class="status-badge" [ngClass]="getStatusClass(produto.status)">{{ produto.status }}</span>
+            <span class="status-badge" [ngClass]="getStatusClass(produto.estoque)">{{ getStatus(produto.estoque) }}</span>
           </div>
           <div class="card-item">
             <span class="card-label">Preço:</span>

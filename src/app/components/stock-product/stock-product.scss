@@ -5,13 +5,45 @@
   overflow-x: auto;
 }
 
+.products-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  background-color: $card;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  padding: 2vh;
+
+  gap: 1vh;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  h2 {
+    font-size: large;
+    font-weight: 500;
+  }
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   color: #c7c7c7;
   background-color: $card;
-  border-radius: 8px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   overflow: hidden;
+}
+
+tr th:first-child {
+  padding-left: 3vw;
 }
 
 thead th {
@@ -19,9 +51,11 @@ thead th {
   padding: 12px 15px;
   text-align: left;
   font-weight: 400;
+  color: $opacity-text-color;
 }
 
 tbody tr {
+  width: 100%;
   border-bottom: 1px solid $muted;
 }
 
@@ -35,6 +69,7 @@ tbody td {
 }
 
 .product-info {
+  margin-left: 2vw;
   display: flex;
   align-items: center;
 }
@@ -56,11 +91,6 @@ tbody td {
 .product-id {
   font-size: 0.8em;
   color: $opacity-text-color;
-}
-
-.low-stock {
-  color: $warning;
-  font-weight: 400;
 }
 
 .status-badge {
@@ -120,7 +150,7 @@ tbody td {
 }
 
 .card {
-  background-color: #2a2d33;
+  background-color: $card;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -170,6 +200,11 @@ tbody td {
 
   .mobile-cards {
     display: flex;
+  }
+
+  .category-icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
