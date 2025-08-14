@@ -1,4 +1,4 @@
-name: Deploy Angular to Hostinger
+name: Deploy Angular to Hostinger via FTP
 
 on:
   push:
@@ -32,4 +32,5 @@ jobs:
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/stock-web/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}
-
+          dry-run: false
+          log-level: verbose
