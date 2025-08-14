@@ -24,22 +24,20 @@ jobs:
       - name: Build Angular
         run: npx ng build --configuration production --base-href "/"
 
-      - name: Limpar diretório de destino
+      - name: Criar arquivo tar.gz do build
+        run: tar -czf build.tar.gz -C dist/stock-web/browser .
+
+      - name: Deploy com SSH e Tar
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 65002
+          source: "build.tar.gz"
+          target: "domains/stockei.com/public_html"
           script: |
-            rm -rf domains/stockei.com/public_html/*
-
-      - name: Deploy via SFTP
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 65002
-          source: "dist/stock-web/browser/*"
-          target: "domains/stockei.com/public_html/"
+            cd domains/stockei.com/public_html
+            rm -rf *
+            tar -xzf build.tar.gz
+            rm build.tar.gz
