@@ -46,6 +46,6 @@ jobs:
           port: 65002
           script: |
             cd domains/stockei.com/public_html
-            rm -rf !("build.tar.gz")
+            find . -maxdepth 1 -mindepth 1 ! -name "build.tar.gz" -exec rm -rf {} +
             tar -xzf build.tar.gz
             rm build.tar.gz
