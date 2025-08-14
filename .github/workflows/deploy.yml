@@ -30,8 +30,8 @@ jobs:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
+          port: 65002
           source: "dist/stock-web/*"
-          target: "/public_html"
+          target: ${{ secrets.FTP_REMOTE_DIR }}
           rm: true
           strip_components: 1
