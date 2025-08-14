@@ -1,4 +1,4 @@
-name: Deploy Hostinger
+name: Deploy Angular to Hostinger
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular
-        run: ng build --configuration production --base-href "/"
+        run: npx ng build --configuration production --base-href "/"
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v3.1.2
