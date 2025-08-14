@@ -27,8 +27,8 @@ jobs:
       - name: Criar arquivo tar.gz do build
         run: tar -czf build.tar.gz -C dist/stock-web/browser .
 
-      - name: Deploy com SSH e Tar
-        uses: appleboy/ssh-action@v0.1.10
+      - name: Upload do arquivo para o servidor
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -36,8 +36,16 @@ jobs:
           port: 65002
           source: "build.tar.gz"
           target: "domains/stockei.com/public_html"
+
+      - name: Descompactar e limpar arquivos no servidor
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
           script: |
             cd domains/stockei.com/public_html
-            rm -rf *
+            rm -rf !("build.tar.gz")
             tar -xzf build.tar.gz
             rm build.tar.gz
