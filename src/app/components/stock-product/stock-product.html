@@ -15,29 +15,29 @@
       </tr>
     </thead>
     <tbody>
-      @for (produto of produtos; track produto.id) {
+      @for (product of products; track product.id) {
         <tr>
           <td>
             <div class="product-info">
-                <img [src]="produto.icon" alt="Ícone da Categoria" class="category-icon">
+                <img [src]="product.icon" alt="Ícone da Categoria" class="category-icon">
               <div class="product-details">
-                <span>{{ produto.nome }}</span>
-                <span class="product-id">ID: {{ produto.id }}</span>
+                <span>{{ product.name }}</span>
+                <span class="product-id">ID: {{ product.id }}</span>
               </div>
             </div>
           </td>
-          <td>{{ produto.categoria }}</td>
-          <td [class.warning-alert]="produto.estoque <= 10" [class.destructive-alert]="produto.estoque == 0">{{ produto.estoque }}</td>
+          <td>{{ product.category }}</td>
+          <td [class.warning-alert]="product.inStock <= 10" [class.destructive-alert]="product.inStock == 0">{{ product.inStock }}</td>
           <td>
-            <div class="status-badge" [ngClass]="getStatusClass(produto.estoque)">
-              {{ getStatus(produto.estoque) }}
+            <div class="status-badge" [ngClass]="getStatusClass(product.inStock)">
+              {{ getStatus(product.inStock) }}
             </div>
           </td>
-          <td>{{ produto.preco | currency:'BRL':'symbol':'1.2-2'}}</td>
+          <td>{{ product.price| currency:'BRL':'symbol':'1.2-2'}}</td>
           <td>
             <div class="action-buttons">
               <button class="btn-edit">Editar</button>
-              <button class="btn-view">Ver</button>
+              <button class="btn-view" (click)="showProduct(product)">Ver</button>
             </div>
           </td>
         </tr>
@@ -46,36 +46,36 @@
   </table>
 
   <div class="mobile-cards">
-    @for (produto of produtos; track produto.id) {
+    @for (product of products; track product.id) {
       <div class="card">
         <div class="card-header">
-          <img [src]="produto.icon" alt="Ícone da Categoria" class="category-icon">
+          <img [src]="product.icon" alt="Ícone da Categoria" class="category-icon">
           <div class="product-details">
-            <span class="product-name">{{ produto.nome }}</span>
-            <span class="product-id">ID: {{ produto.id }}</span>
+            <span class="product-name">{{ product.name }}</span>
+            <span class="product-id">ID: {{ product.id }}</span>
           </div>
         </div>
         <div class="card-body">
           <div class="card-item">
             <span class="card-label">Categoria:</span>
-            <span class="card-value">{{ produto.categoria }}</span>
+            <span class="card-value">{{ product.category }}</span>
           </div>
           <div class="card-item">
             <span class="card-label">Estoque:</span>
-            <span class="card-value" [class.warning-alert]="produto.estoque <= 10" [class.destructive-alert]="produto.estoque == 0">{{ produto.estoque }}</span>
+            <span class="card-value" [class.warning-alert]="product.inStock <= 10" [class.destructive-alert]="product.inStock == 0">{{ product.inStock }}</span>
           </div>
           <div class="card-item">
             <span class="card-label">Status:</span>
-            <span class="status-badge" [ngClass]="getStatusClass(produto.estoque)">{{ getStatus(produto.estoque) }}</span>
+            <span class="status-badge" [ngClass]="getStatusClass(product.inStock)">{{ getStatus(product.inStock) }}</span>
           </div>
           <div class="card-item">
             <span class="card-label">Preço:</span>
-            <span class="card-value">{{ produto.preco | currency:'BRL':'symbol':'1.2-2' }}</span>
+            <span class="card-value">{{ product.price | currency:'BRL':'symbol':'1.2-2' }}</span>
           </div>
         </div>
         <div class="card-actions">
-          <button class="btn-edit">Editar</button>
-          <button class="btn-view">Ver</button>
+              <button class="btn-edit">Editar</button>
+              <button class="btn-view" (click)="showProduct(product)">Ver</button>
         </div>
       </div>
     }

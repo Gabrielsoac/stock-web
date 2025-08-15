@@ -1,3 +1,4 @@
+@if(viewingProduct) { <app-show-product [productData]="selectedProduct" (closeViewingProduct)="closeShowProduct()"></app-show-product> }
 <main id="stock">
   <header class="header">
     <h1 class="header-title">Estoque</h1>
@@ -44,7 +45,7 @@
       </div>
       </section>
         <section id="products">
-          <app-stock-product/>
+          <app-stock-product (showProductInfo)="showProduct($event)"></app-stock-product>
         </section>
       <footer>
       </footer>

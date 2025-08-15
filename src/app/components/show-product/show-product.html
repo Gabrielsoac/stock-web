@@ -1,26 +1,33 @@
-<div class="product-info">
-  <div class="product-info-header">
-    <img src="" alt="">
-    <h3></h3>
-  </div>
-  <div>
-    <span>Nome do Produto*</span>
-    <p>D-Link 380</p>
-  </div>
-    <div>
-    <span>ID*</span>
-    <p>123</p>
-  </div>
-    <div>
-    <span>Categoria*</span>
-    <p>Roteador</p>
-  </div>
-    <div>
-    <span>Preço*</span>
-    <p>Number</p>
-  </div>
-    <div>
-    <span>Quantidade Disponível*</span>
-    <p>12</p>
-  </div>
-</div>
+<section class="modal">
+  <div class="product-info">
+    <div class="product-info-header">
+      <img [src]="productData.icon" [alt]="productData.name">
+      <h3>Informações do Produto</h3>
+    </div>
+    <div class="infos">
+      <div class="info">
+        <span>Nome:</span>
+        <p class="product-name"> {{ productData.name }}</p>
+      </div>
+      <div class="info">
+        <span>ID: </span>
+        <p> {{ productData.id }}</p>
+      </div>
+      <div class="info">
+        <span>Categoria:</span>
+        <p> {{ productData.category }}</p>
+      </div>
+      <div class="info">
+        <span>Preço*</span>
+        <p> {{ productData.price }}</p>
+      </div>
+      <div class="info">
+        <span>Quantidade Disponível:</span>
+        <p>{{ productData.price }}</p>
+      </div>
+    </div>
+    <button class="closeButton" (click)="closeViewing()">
+      <img src="exit.png" alt="">
+    </button>
+    </div>
+</section>
