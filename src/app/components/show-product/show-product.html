@@ -18,12 +18,12 @@
         <p> {{ productData.category }}</p>
       </div>
       <div class="info">
-        <span>Preço*</span>
+        <span>Preço:</span>
         <p> {{ productData.price }}</p>
       </div>
       <div class="info">
         <span>Quantidade Disponível:</span>
-        <p>{{ productData.price }}</p>
+        <p>{{ productData.price | currency:'BRL':'symbol':'1.2-2' }}</p>
       </div>
     </div>
     <button class="closeButton" (click)="closeViewing()">
